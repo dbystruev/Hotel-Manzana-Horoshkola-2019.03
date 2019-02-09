@@ -19,6 +19,11 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet weak var checkOutLabel: UILabel!
     @IBOutlet weak var checkOutPicker: UIDatePicker!
     
+    let checkInLabelPath = IndexPath(row: 0, section: 1)
+    let checkInPickerPath = IndexPath(row: 1, section: 1)
+    let checkOutLabelPath = IndexPath(row: 2, section: 1)
+    let checkOutPickerPath = IndexPath(row: 3, section: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -26,6 +31,8 @@ class AddRegistrationTableViewController: UITableViewController {
     
     func setupUI() {
         checkInPicker.date = Date()
+        checkInPicker.isHidden = true
+        checkOutPicker.isHidden = true
         updateUI()
     }
     func updateUI() {
@@ -37,6 +44,29 @@ class AddRegistrationTableViewController: UITableViewController {
         
         checkInLabel.text = dateFormatter.string(from: checkInPicker.date)
         checkOutLabel.text = dateFormatter.string(from: checkOutPicker.date)
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath {
+        case checkInLabelPath:
+            checkInPicker.isHidden.toggle()
+        case checkOutLabelPath:
+            checkOutPicker.isHidden.toggle()
+        default:
+            return
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath {
+        case checkInPickerPath:
+                return checkInPicker.isHidden ? 0 : 200
+            case checkOutPickerPath:
+                return checkOutPicker.isHidden ? 0 : 200
+        default:
+            return 44
+        }
     }
     
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem) {
