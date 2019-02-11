@@ -31,6 +31,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldChaged:" destination="YKn-W0-lPy" eventType="editingChanged" id="3ye-0f-LE6"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -53,6 +56,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldChaged:" destination="YKn-W0-lPy" eventType="editingChanged" id="AFj-Wa-Cnz"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -75,6 +81,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textFieldChaged:" destination="YKn-W0-lPy" eventType="editingChanged" id="o7J-nL-fnY"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -114,7 +123,6 @@
                                                 <constraint firstItem="VcZ-ng-GmM" firstAttribute="bottom" secondItem="jea-GJ-64I" secondAttribute="bottomMargin" id="3ou-JB-DgS"/>
                                                 <constraint firstItem="ii7-dT-i1y" firstAttribute="leading" secondItem="jea-GJ-64I" secondAttribute="leadingMargin" id="9d5-CT-rSg"/>
                                                 <constraint firstItem="VcZ-ng-GmM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ii7-dT-i1y" secondAttribute="trailing" id="FaS-F5-tXC"/>
-                                                <constraint firstItem="VcZ-ng-GmM" firstAttribute="leading" secondItem="ii7-dT-i1y" secondAttribute="trailing" constant="143" id="Joy-Lv-Njb"/>
                                                 <constraint firstItem="ii7-dT-i1y" firstAttribute="bottom" secondItem="jea-GJ-64I" secondAttribute="bottomMargin" id="LsK-BQ-idE"/>
                                                 <constraint firstItem="ii7-dT-i1y" firstAttribute="top" secondItem="jea-GJ-64I" secondAttribute="topMargin" id="RbZ-rp-lxJ"/>
                                                 <constraint firstItem="VcZ-ng-GmM" firstAttribute="top" secondItem="jea-GJ-64I" secondAttribute="topMargin" id="UCk-ax-1T2"/>
@@ -204,6 +212,72 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Dates" id="alB-q8-qtL" userLabel="People">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="f59-Nn-MZO">
+                                        <rect key="frame" x="0.0" y="787.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f59-Nn-MZO" id="zcj-KE-BD3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adults: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxU-dd-beW">
+                                                    <rect key="frame" x="8" y="8" width="72" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qGB-KW-ezZ">
+                                                    <rect key="frame" x="273" y="8" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="UIStepper:" destination="YKn-W0-lPy" eventType="valueChanged" id="nPs-dB-KsG"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qGB-KW-ezZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TxU-dd-beW" secondAttribute="trailing" id="5DR-1m-kTW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qGB-KW-ezZ" secondAttribute="bottom" id="DMY-fy-YZL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qGB-KW-ezZ" secondAttribute="trailing" id="Onw-3p-0Yp"/>
+                                                <constraint firstItem="qGB-KW-ezZ" firstAttribute="top" secondItem="zcj-KE-BD3" secondAttribute="topMargin" id="fDf-dx-Ky5"/>
+                                                <constraint firstItem="TxU-dd-beW" firstAttribute="top" secondItem="zcj-KE-BD3" secondAttribute="topMargin" id="ht9-1g-8eB"/>
+                                                <constraint firstItem="TxU-dd-beW" firstAttribute="leading" secondItem="zcj-KE-BD3" secondAttribute="leadingMargin" id="l3V-fK-tCx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="TxU-dd-beW" secondAttribute="bottom" id="qxb-no-DyH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3l5-Cy-NZH">
+                                        <rect key="frame" x="0.0" y="831.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3l5-Cy-NZH" id="YrE-nY-O9n">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCh-CB-z0T">
+                                                    <rect key="frame" x="8" y="8" width="96" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="mXM-lH-KXq">
+                                                    <rect key="frame" x="273" y="8" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="UIStepper:" destination="YKn-W0-lPy" eventType="valueChanged" id="GYC-hv-ZWV"/>
+                                                    </connections>
+                                                </stepper>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mXM-lH-KXq" secondAttribute="bottom" id="3Ha-U5-Tzw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GCh-CB-z0T" secondAttribute="bottom" id="8f9-PL-9Pd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mXM-lH-KXq" secondAttribute="trailing" id="TZl-ct-xpa"/>
+                                                <constraint firstItem="mXM-lH-KXq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GCh-CB-z0T" secondAttribute="trailing" id="hqO-pb-7E1"/>
+                                                <constraint firstItem="mXM-lH-KXq" firstAttribute="top" secondItem="YrE-nY-O9n" secondAttribute="topMargin" id="t3u-7U-GPA"/>
+                                                <constraint firstItem="GCh-CB-z0T" firstAttribute="top" secondItem="YrE-nY-O9n" secondAttribute="topMargin" id="wAV-DI-4o6"/>
+                                                <constraint firstItem="GCh-CB-z0T" firstAttribute="leading" secondItem="YrE-nY-O9n" secondAttribute="leadingMargin" id="zzf-sI-8tO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="YKn-W0-lPy" id="cTt-Wm-zDI"/>
@@ -218,10 +292,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="adultsLabel" destination="TxU-dd-beW" id="4on-W0-RWe"/>
+                        <outlet property="adultsStepper" destination="qGB-KW-ezZ" id="yB8-88-d7O"/>
                         <outlet property="checkInLabel" destination="VcZ-ng-GmM" id="4Uv-BG-uaM"/>
                         <outlet property="checkInPicker" destination="7xu-78-dJU" id="Aa1-rF-ZJq"/>
                         <outlet property="checkOutLabel" destination="ZaO-MP-Ie9" id="lHW-ED-HvE"/>
                         <outlet property="checkOutPicker" destination="Ulh-dV-sXS" id="3kS-WB-V31"/>
+                        <outlet property="childrenLabel" destination="GCh-CB-z0T" id="xVS-eX-y84"/>
+                        <outlet property="childrenStepper" destination="mXM-lH-KXq" id="cIm-Ga-kT9"/>
+                        <outlet property="doneBarButton" destination="s4m-Id-ok1" id="lYr-1f-YJf"/>
                         <outlet property="emailTextField" destination="9v4-24-FPZ" id="wYA-9U-3Rg"/>
                         <outlet property="firstNameTextField" destination="o0K-rO-3iD" id="CuG-AF-QbW"/>
                         <outlet property="lastNameTextField" destination="tpB-mw-dpv" id="GcR-Lg-Dge"/>
@@ -229,7 +308,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JjM-5P-njb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-134" y="103"/>
+            <point key="canvasLocation" x="-135.19999999999999" y="102.99850074962519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u3I-CE-1jn">

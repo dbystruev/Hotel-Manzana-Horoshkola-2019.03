@@ -10,6 +10,8 @@ import UIKit
 
 class AddRegistrationTableViewController: UITableViewController {
 
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -18,6 +20,12 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet weak var checkInPicker: UIDatePicker!
     @IBOutlet weak var checkOutLabel: UILabel!
     @IBOutlet weak var checkOutPicker: UIDatePicker!
+    
+    @IBOutlet weak var adultsLabel: UILabel!
+    @IBOutlet weak var adultsStepper: UIStepper!
+    @IBOutlet weak var childrenLabel: UILabel!
+    @IBOutlet weak var childrenStepper: UIStepper!
+    
     
     let checkInLabelPath = IndexPath(row: 0, section: 1)
     let checkInPickerPath = IndexPath(row: 1, section: 1)
@@ -33,8 +41,16 @@ class AddRegistrationTableViewController: UITableViewController {
         checkInPicker.date = Date()
         checkInPicker.isHidden = true
         checkOutPicker.isHidden = true
+        updateDoneButton()
         updateUI()
     }
+    
+    func updateDoneButton() {
+      doneBarButton.isEnabled = !(firstNameTextField.text?.isEmpty ?? true)
+      doneBarButton.isEnabled = doneBarButton.isEnabled && !(lastNameTextField.text?.isEmpty ?? true)
+      doneBarButton.isEnabled = doneBarButton.isEnabled && !(emailTextField.text?.isEmpty ?? true)
+    }
+    
     func updateUI() {
         checkInPicker.date = max(checkInPicker.date, Date())
         checkOutPicker.date = max(checkOutPicker.date, checkInPicker.date.addingTimeInterval(24 * 60 * 60))
@@ -44,6 +60,9 @@ class AddRegistrationTableViewController: UITableViewController {
         
         checkInLabel.text = dateFormatter.string(from: checkInPicker.date)
         checkOutLabel.text = dateFormatter.string(from: checkOutPicker.date)
+        
+        adultsLabel.text = "Adults: \(Int(adultsStepper.value))"
+        childrenLabel.text = "Children: \(Int(childrenStepper.value))"
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
@@ -73,25 +92,33 @@ class AddRegistrationTableViewController: UITableViewController {
         let firstName = firstNameTextField.text ?? ""
         let lastName = lastNameTextField.text ?? ""
         let email = emailTextField.text ?? ""
+        let checkInDate = self.checkInPicker.date
+        let checkOutDate = self.checkOutPicker.date
+        let adults = Int(adultsStepper.value)
+        let children = Int(childrenStepper.value)
         
         let registration = Registration(
             firstName: firstName,
             lastName: lastName,
             emailAddress: email,
-            checkInDate: Date(),
-            checkOutDate: Date(),
-            numberOfAdults: Int(),
-            numderOfChildren: Int(),
+            checkInDate: checkInDate,
+            checkOutDate: checkOutDate,
+            numberOfAdults: adults,
+            numderOfChildren: children,
             roomType: RoomType(
                 id: Int(),
                 name: String(),
                 shortName: String(),
                 price: Int()
+
             ),
             wifi: Bool()
         )
         
         print(#function, registration)
+    }
+    @IBAction func textFieldChaged(_ sender: UITextField) {
+        updateDoneButton()
     }
     
     @IBAction func checkInChanged(_ sender: UIDatePicker) {
@@ -101,4 +128,10 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBAction func checkOutChanged(_ sender: UIDatePicker) {
         updateUI()
     }
+    
+    @IBAction func UIStepper(_ sender: Any) {
+        updateUI()
+    }
+    
 }
+

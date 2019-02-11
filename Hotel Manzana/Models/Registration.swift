@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Registration {
+struct Registration: Codable {
     var firstName: String
     var lastName: String
     var emailAddress: String
@@ -20,4 +20,8 @@ struct Registration {
     
     var roomType: RoomType
     var wifi: Bool
+    
+    var encoded: Data? {
+        return try? PropertyListEncoder().encode(self)
+    }
 }
