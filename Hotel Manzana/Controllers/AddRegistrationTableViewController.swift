@@ -41,6 +41,7 @@ class AddRegistrationTableViewController: UITableViewController {
         checkInPicker.date = Date()
         checkInPicker.isHidden = true
         checkOutPicker.isHidden = true
+        setupKeyboardNotification()
         updateDoneButton()
         updateUI()
     }
@@ -89,6 +90,8 @@ class AddRegistrationTableViewController: UITableViewController {
     }
     
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem) {
+        view.endEditing(true)
+        
         let firstName = firstNameTextField.text ?? ""
         let lastName = lastNameTextField.text ?? ""
         let email = emailTextField.text ?? ""
@@ -117,6 +120,15 @@ class AddRegistrationTableViewController: UITableViewController {
         
         print(#function, registration)
     }
+    
+    @IBAction func textFieldFinished(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func tapPressed(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     @IBAction func textFieldChaged(_ sender: UITextField) {
         updateDoneButton()
     }

@@ -16,6 +16,8 @@
 		AC002A6A2208972700889103 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC002A692208972700889103 /* Registration.swift */; };
 		AC002A6C2208989600889103 /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC002A6B2208989600889103 /* RoomType.swift */; };
 		AC002A6F22089D7D00889103 /* AddRegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC002A6E22089D7D00889103 /* AddRegistrationTableViewController.swift */; };
+		ACB0B3A12217EA4E00FC936C /* AddRegistrationTableViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0B3A02217EA4E00FC936C /* AddRegistrationTableViewController+Keyboard.swift */; };
+		ACB0B3A32218031D00FC936C /* RoomSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0B3A22218031D00FC936C /* RoomSelectionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		AC002A692208972700889103 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		AC002A6B2208989600889103 /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		AC002A6E22089D7D00889103 /* AddRegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegistrationTableViewController.swift; sourceTree = "<group>"; };
+		ACB0B3A02217EA4E00FC936C /* AddRegistrationTableViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRegistrationTableViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		ACB0B3A22218031D00FC936C /* RoomSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				AC002A6E22089D7D00889103 /* AddRegistrationTableViewController.swift */,
+				ACB0B3A02217EA4E00FC936C /* AddRegistrationTableViewController+Keyboard.swift */,
+				ACB0B3A22218031D00FC936C /* RoomSelectionTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -279,7 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC002A6C2208989600889103 /* RoomType.swift in Sources */,
+				ACB0B3A12217EA4E00FC936C /* AddRegistrationTableViewController+Keyboard.swift in Sources */,
 				AC002A6F22089D7D00889103 /* AddRegistrationTableViewController.swift in Sources */,
+				ACB0B3A32218031D00FC936C /* RoomSelectionTableViewController.swift in Sources */,
 				AC002A6A2208972700889103 /* Registration.swift in Sources */,
 				AC002A3B2208969300889103 /* AppDelegate.swift in Sources */,
 			);
@@ -495,6 +503,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Hotel ManzanaTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,6 +524,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Hotel ManzanaTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,6 +544,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Hotel ManzanaUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,6 +564,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Hotel ManzanaUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
