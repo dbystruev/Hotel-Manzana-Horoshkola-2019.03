@@ -226,13 +226,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adults: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxU-dd-beW">
-                                                    <rect key="frame" x="8" y="8" width="72" height="27.5"/>
+                                                    <rect key="frame" x="16" y="11" width="72" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qGB-KW-ezZ">
-                                                    <rect key="frame" x="273" y="8" width="94" height="29"/>
+                                                    <rect key="frame" x="265" y="11" width="94" height="29"/>
                                                     <connections>
                                                         <action selector="UIStepper:" destination="YKn-W0-lPy" eventType="valueChanged" id="nPs-dB-KsG"/>
                                                     </connections>
@@ -257,13 +257,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Children: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCh-CB-z0T">
-                                                    <rect key="frame" x="8" y="8" width="96" height="27.5"/>
+                                                    <rect key="frame" x="16" y="11" width="96" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="mXM-lH-KXq">
-                                                    <rect key="frame" x="273" y="8" width="94" height="29"/>
+                                                    <rect key="frame" x="265" y="11" width="94" height="29"/>
                                                     <connections>
                                                         <action selector="UIStepper:" destination="YKn-W0-lPy" eventType="valueChanged" id="GYC-hv-ZWV"/>
                                                     </connections>
@@ -347,6 +347,7 @@
                         <outlet property="emailTextField" destination="9v4-24-FPZ" id="wYA-9U-3Rg"/>
                         <outlet property="firstNameTextField" destination="o0K-rO-3iD" id="CuG-AF-QbW"/>
                         <outlet property="lastNameTextField" destination="tpB-mw-dpv" id="GcR-Lg-Dge"/>
+                        <outlet property="roomSelectionLabel" destination="M7t-Cl-MZe" id="K0s-ix-ZGz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JjM-5P-njb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -397,8 +398,21 @@
                             <outlet property="delegate" destination="w5c-ri-ngc" id="6pZ-dS-yGJ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Select Room" id="SkF-gi-1bQ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="n6d-V8-x33">
+                            <connections>
+                                <segue destination="PGU-fe-sUr" kind="unwind" unwindAction="unwindWithSegue:" id="yA4-L5-793"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="b37-G1-TIp">
+                            <connections>
+                                <segue destination="PGU-fe-sUr" kind="unwind" identifier="SaveRoomSelectionSegue" unwindAction="unwindWithSegue:" id="dFq-pP-Uzc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y3H-mq-l6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PGU-fe-sUr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="657" y="103"/>
         </scene>

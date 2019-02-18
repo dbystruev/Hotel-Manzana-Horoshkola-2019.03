@@ -26,6 +26,7 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet weak var childrenLabel: UILabel!
     @IBOutlet weak var childrenStepper: UIStepper!
     
+    @IBOutlet weak var roomSelectionLabel: UILabel!
     
     let checkInLabelPath = IndexPath(row: 0, section: 1)
     let checkInPickerPath = IndexPath(row: 1, section: 1)
@@ -143,6 +144,16 @@ class AddRegistrationTableViewController: UITableViewController {
     
     @IBAction func UIStepper(_ sender: Any) {
         updateUI()
+    }
+    
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        guard segue.identifier == "SaveRoomSelectionSegue" else { return }
+        
+        guard let controller = segue.source as? RoomSelectionTableViewController else { return }
+        
+        guard let roomIndex = controller.selectedRow else { return }
+        
+        roomSelectionLabel.text = "\(RoomType.all[roomIndex].name)"
     }
     
 }
