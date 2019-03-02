@@ -28,10 +28,14 @@ class AddRegistrationTableViewController: UITableViewController {
     
     @IBOutlet weak var roomSelectionLabel: UILabel!
     
+    @IBOutlet weak var wifiSwitch: UISwitch!
+    
     let checkInLabelPath = IndexPath(row: 0, section: 1)
     let checkInPickerPath = IndexPath(row: 1, section: 1)
     let checkOutLabelPath = IndexPath(row: 2, section: 1)
     let checkOutPickerPath = IndexPath(row: 3, section: 1)
+    
+    var selectedRoomIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +52,10 @@ class AddRegistrationTableViewController: UITableViewController {
     }
     
     func updateDoneButton() {
-      doneBarButton.isEnabled = !(firstNameTextField.text?.isEmpty ?? true)
-      doneBarButton.isEnabled = doneBarButton.isEnabled && !(lastNameTextField.text?.isEmpty ?? true)
-      doneBarButton.isEnabled = doneBarButton.isEnabled && !(emailTextField.text?.isEmpty ?? true)
+        doneBarButton.isEnabled = !(firstNameTextField.text?.isEmpty ?? true)
+        doneBarButton.isEnabled = doneBarButton.isEnabled && !(lastNameTextField.text?.isEmpty ?? true)
+        doneBarButton.isEnabled = doneBarButton.isEnabled && !(emailTextField.text?.isEmpty ?? true)
+        doneBarButton.isEnabled = doneBarButton.isEnabled && selectedRoomIndex != nil
     }
     
     func updateUI() {
@@ -100,6 +105,8 @@ class AddRegistrationTableViewController: UITableViewController {
         let checkOutDate = self.checkOutPicker.date
         let adults = Int(adultsStepper.value)
         let children = Int(childrenStepper.value)
+        let roomType = RoomType.all[selectedRoomIndex ?? 0]
+        let wifi = wifiSwitch.isOn
         
         let registration = Registration(
             firstName: firstName,
@@ -109,14 +116,8 @@ class AddRegistrationTableViewController: UITableViewController {
             checkOutDate: checkOutDate,
             numberOfAdults: adults,
             numderOfChildren: children,
-            roomType: RoomType(
-                id: Int(),
-                name: String(),
-                shortName: String(),
-                price: Int()
-
-            ),
-            wifi: Bool()
+            roomType: roomType,
+            wifi: wifi
         )
         
         print(#function, registration)
@@ -153,7 +154,10 @@ class AddRegistrationTableViewController: UITableViewController {
         
         guard let roomIndex = controller.selectedRow else { return }
         
+        selectedRoomIndex = roomIndex
+        
         roomSelectionLabel.text = "\(RoomType.all[roomIndex].name)"
+        updateDoneButton()
     }
     
 }
